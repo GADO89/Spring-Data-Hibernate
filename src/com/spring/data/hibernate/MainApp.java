@@ -10,6 +10,11 @@ public class MainApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+	}
+
+}
+
+/*
 		String url="jdbc:mysql://localhost:3306/employee?useSSL=false";
 		String username="root";
 		String password="gado";
@@ -24,8 +29,6 @@ public class MainApp {
 		}catch (Exception e){
 
 			System.out.println(e.toString());
-		}
+		} */
 
-	}
 
-}
