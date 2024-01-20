@@ -1,13 +1,24 @@
 package com.spring.data.hibernate.model;
 
-public class Client {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "client")
+public class Client {
+     @Id
+     @Column(name = "client_id")
     private Long id;
 
+    @Column(name = "client_name")
     private String fullName;
 
+    @Column(name = "client_age")
     private String age;
 
+    @Column(name = "client_adress")
     private String adress;
 
     public Long getId() {
