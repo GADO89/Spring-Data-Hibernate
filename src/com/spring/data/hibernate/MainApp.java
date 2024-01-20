@@ -2,6 +2,11 @@ package com.spring.data.hibernate;
 
 
 
+import com.spring.data.hibernate.model.Client;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -9,6 +14,12 @@ public class MainApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		SessionFactory factory=new Configuration()
+				.configure("hibernate.cfg.xml")
+				.addAnnotatedClass(Client.class)
+				.buildSessionFactory();
+
+		Session session=factory.getCurrentSession();
 
 	}
 
