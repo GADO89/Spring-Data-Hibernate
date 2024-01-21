@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spring_data_hibernate.iml" filepath="$PROJECT_DIR$/spring_data_hibernate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_data_hibernate1.iml" filepath="$PROJECT_DIR$/spring_data_hibernate1.iml" />
     </modules>
   </component>
 </project>

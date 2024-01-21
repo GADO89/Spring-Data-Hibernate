@@ -1,4 +1,5 @@
-package com.spring.data.hibernate.model;
+package com.springdata.hibernate.model;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "client")
 public class Client {
-     @Id
+    @Id
      @Column(name = "client_id")
     private Long id;
 

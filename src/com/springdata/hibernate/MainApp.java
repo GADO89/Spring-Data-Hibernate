@@ -1,14 +1,10 @@
-package com.spring.data.hibernate;
+package com.springdata.hibernate;
 
-
-
-import com.spring.data.hibernate.model.Client;
+import com.springdata.hibernate.model.Client;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 
 public class MainApp {
 
@@ -18,8 +14,8 @@ public class MainApp {
 				.configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Client.class)
 				.buildSessionFactory();
+		Session session= (Session) factory.getCurrentSession();
 
-		Session session=factory.getCurrentSession();
 
 	}
 
