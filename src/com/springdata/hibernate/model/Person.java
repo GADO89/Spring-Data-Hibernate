@@ -14,7 +14,7 @@ public class Person {
     @Column(name = "full_name")
     private String name;
 
-    @OneToOne(cascade =CascadeType.REMOVE)
+    @OneToOne(cascade =CascadeType.MERGE)
     @JoinColumn(name = "id_data")
     private Data data;
 
