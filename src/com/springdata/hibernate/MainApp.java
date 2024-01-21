@@ -28,24 +28,28 @@ public class MainApp {
 		try {
          session.beginTransaction();
 
-		 /*
-		 Person p=new Person();
-		 p.setName("Eslam Khder");
 
-		 Data data=new Data();
+		/* Person p=new Person();
+		 p.setName("Eslam Khder");
+		 session.save(p);
+
+
+			Data data=new Data();
 		 data.setAge("20");
 		 session.save(data); */
 
 		 Person p=new Person();
 		 p.setId(1L);
 
-		/* Person res= session.get(Person.class,p.getId());
+		 Person res= session.get(Person.class,p.getId());
+
 			System.out.println("Name : "+ res.getName());
-			System.out.println("Age : "+ res.getData().getAge()); */
+			System.out.println("Age : "+ res.getData().getAge());
 
 			Integer id=1;
-			session.delete(p);
+			session.delete(res);
 			session.getTransaction().commit();
+
 		}catch (Exception e){
 		  System.out.println(e.toString());
 	  }  finally {
