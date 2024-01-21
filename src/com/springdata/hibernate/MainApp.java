@@ -1,6 +1,8 @@
 package com.springdata.hibernate;
 
 import com.springdata.hibernate.model.Client;
+import com.springdata.hibernate.model.Data;
+import com.springdata.hibernate.model.Person;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,30 +19,15 @@ public class MainApp {
 		// TODO Auto-generated method stub
 		SessionFactory factory=new Configuration()
 				.configure("hibernate.cfg.xml")
-				.addAnnotatedClass(Client.class)
+				.addAnnotatedClass(Person.class)
+				.addAnnotatedClass(Data.class)
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
-		int id=1;
+
 		try {
          session.beginTransaction();
 		 Criteria c=session.createCriteria(Client.class);
-	    	 //c.setProjection(Projections.min("id"));
-			//c.setProjection(Projections.max("id"));
-			//c.setProjection(Projections.avg("id"));
-			//c.setProjection(Projections.sum("id"));
-			//c.setProjection(Projections.count("address"));
-			c.setProjection(Projections.countDistinct("address"));
-
-
-
-
-
-
-			List<Client> clients=	c.list();
-			System.out.println("countDistinct  :"+clients.get(0));
-			//for (int i=0;i< clients.size();i++){
-			//	System.out.println(clients.get(i).getFullName()+"    "+clients.get(i).getAge());}
 
 		}catch (Exception e){
 		  System.out.println(e.toString());
@@ -52,7 +39,7 @@ public class MainApp {
 
 }
 
-/*
+        /*
 		String url="jdbc:mysql://localhost:3306/employee?useSSL=false";
 		String username="root";
 		String password="gado";
@@ -144,3 +131,19 @@ Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
 			LogicalExpression or=Restrictions.and(c1,c2);
 			c.add(or);
 			 */
+
+
+ /*
+	    	 //c.setProjection(Projections.min("id"));
+			//c.setProjection(Projections.max("id"));
+			//c.setProjection(Projections.avg("id"));
+			//c.setProjection(Projections.sum("id"));
+			//c.setProjection(Projections.count("address"));
+			c.setProjection(Projections.countDistinct("address"));
+
+
+			List<Client> clients=	c.list();
+			System.out.println("countDistinct  :"+clients.get(0));
+			//for (int i=0;i< clients.size();i++){
+			//	System.out.println(clients.get(i).getFullName()+"    "+clients.get(i).getAge());}
+           */
