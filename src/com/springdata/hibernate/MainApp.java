@@ -5,11 +5,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.LogicalExpression;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.query.Query;
+import org.hibernate.criterion.Projections;
+
 
 import java.util.List;
 
@@ -27,23 +24,23 @@ public class MainApp {
 		int id=1;
 		try {
          session.beginTransaction();
+		 Criteria c=session.createCriteria(Client.class);
+	    	 //c.setProjection(Projections.min("id"));
+			//c.setProjection(Projections.max("id"));
+			//c.setProjection(Projections.avg("id"));
+			//c.setProjection(Projections.sum("id"));
+			//c.setProjection(Projections.count("address"));
+			c.setProjection(Projections.countDistinct("address"));
 
-		    Long[] ids={1L,4L,5L};
-			Criteria c=session.createCriteria(Client.class);
-			//c.setFirstResult(0);
-			//c.setMaxResults(4);
-			//c.add(Restrictions.in("id",ids));
-			//c.add(Restrictions.isNotNull("address"));
-			//c.add(Restrictions.isEmpty("address"));
-			//c.add(Restrictions.eq("fullName", "yasser"));
-			//c.add(Restrictions.like("fullName","m", MatchMode.ANYWHERE));
-			Criterion c1=  Restrictions.eq("address","alex");
-			Criterion c2=  Restrictions.eq("fullName","ali");
-			LogicalExpression or=Restrictions.and(c1,c2);
-			c.add(or);
+
+
+
+
+
 			List<Client> clients=	c.list();
-			for (int i=0;i< clients.size();i++){
-				System.out.println(clients.get(i).getFullName()+"    "+clients.get(i).getAge());}
+			System.out.println("countDistinct  :"+clients.get(0));
+			//for (int i=0;i< clients.size();i++){
+			//	System.out.println(clients.get(i).getFullName()+"    "+clients.get(i).getAge());}
 
 		}catch (Exception e){
 		  System.out.println(e.toString());
@@ -132,7 +129,18 @@ Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
 			System.out.println("  avg "+q4.list().get(0));
 			System.out.println("  Sum "+q5.list().get(0));
 			System.out.println("  Sum "+q6.list().get(0));
-
-
-
 			*/
+
+/*
+			//c.setFirstResult(0);
+			//c.setMaxResults(4);
+			//c.add(Restrictions.in("id",ids));
+			//c.add(Restrictions.isNotNull("address"));
+			//c.add(Restrictions.isEmpty("address"));
+			//c.add(Restrictions.eq("fullName", "yasser"));
+			//c.add(Restrictions.like("fullName","m", MatchMode.ANYWHERE));
+			Criterion c1=  Restrictions.eq("address","alex");
+			Criterion c2=  Restrictions.eq("fullName","solom");
+			LogicalExpression or=Restrictions.and(c1,c2);
+			c.add(or);
+			 */
