@@ -1,15 +1,13 @@
 package com.springdata.hibernate.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "client")
 public class Client {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
      @Column(name = "client_id")
     private Long id;
 
@@ -21,6 +19,12 @@ public class Client {
 
     @Column(name = "client_adress")
     private String address;
+
+    public Client(String fullName, int age, String address) {
+        this.fullName = fullName;
+        this.age = age;
+        this.address = address;
+    }
 
     public Long getId() {
         return id;

@@ -16,18 +16,25 @@ public class MainApp {
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
-		Client client=new Client();
-		client.setId((long)1);
-		client.setFullName("Mahmoud Gado");
-		client.setAge(34);
-		client.setAddress("gaomahmoud377@gmail.com");
+		Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
+		//client.setId((long)1);
+
+		Client client2=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
+		//client2.setId((long)2);
+
+		Client client3=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
+		//client3.setId((long)3);
+
 
       try {
          session.beginTransaction();
 
-		 session.save(client);
+		  session.save(client);
+		  session.save(client2);
+		  session.save(client3);
 
-       session.getTransaction().commit();
+
+		  session.getTransaction().commit();
 	  }catch (Exception e){
 		  System.out.println(e.toString());
 	  }  finally {
