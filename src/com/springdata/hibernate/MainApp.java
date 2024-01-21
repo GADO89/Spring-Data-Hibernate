@@ -16,6 +16,23 @@ public class MainApp {
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
+		Client client=new Client();
+		client.setId((long)1);
+		client.setFullName("Mahmoud Gado");
+		client.setAge(34);
+		client.setAddress("gaomahmoud377@gmail.com");
+
+      try {
+         session.beginTransaction();
+
+		 session.save(client);
+
+       session.getTransaction().commit();
+	  }catch (Exception e){
+		  System.out.println(e.toString());
+	  }  finally {
+      session.close();
+	  }
 
 	}
 

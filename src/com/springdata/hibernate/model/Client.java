@@ -17,10 +17,10 @@ public class Client {
     private String fullName;
 
     @Column(name = "client_age")
-    private String age;
+    private int age;
 
     @Column(name = "client_adress")
-    private String adress;
+    private String address;
 
     public Long getId() {
         return id;
@@ -38,19 +38,19 @@ public class Client {
         this.fullName = fullName;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
