@@ -16,26 +16,25 @@ public class MainApp {
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
-		Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
-		//client.setId((long)1);
 
-		Client client2=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
-		//client2.setId((long)2);
-
-		Client client3=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
-		//client3.setId((long)3);
+		long id=3;
 
 
-      try {
+		try {
          session.beginTransaction();
 
-		  session.save(client);
-		  session.save(client2);
-		  session.save(client3);
+
+			Client client=session.get(Client.class, id);
 
 
-		  session.getTransaction().commit();
-	  }catch (Exception e){
+			session.getTransaction().commit();
+
+
+			System.out.println(client.getFullName()+"     "+client.getAddress());
+			System.out.println(client.getAge());
+
+
+		}catch (Exception e){
 		  System.out.println(e.toString());
 	  }  finally {
       session.close();
@@ -62,4 +61,20 @@ public class MainApp {
 			System.out.println(e.toString());
 		} */
 
+/*
 
+Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
+		//client.setId((long)1);
+
+		Client client2=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
+		//client2.setId((long)2);
+
+		Client client3=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
+		//client3.setId((long)3);
+
+
+		  session.save(client);
+		  session.save(client2);
+		  session.save(client3);
+
+		*/
