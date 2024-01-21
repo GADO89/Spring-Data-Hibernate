@@ -22,22 +22,36 @@ public class MainApp {
 		int id=1;
 		try {
          session.beginTransaction();
-			//List<Client> clients=
-			Query q=
-					session
-					.createQuery("from Client c where c.id=: n1 or fullName=: n2");
-			//q.setFirstResult(0);
-			//q.setMaxResults(3);
-			q.setInteger("n1",id);
-			q.setString("n2","karim");
-			List<Client> clients=	q.list();
+		 Query q1=session.createQuery("select Max(id) from Client ");
+		 Query q2=session.createQuery("select Min(id) from Client ");
+		 Query q3=session.createQuery("select Sum(id) from Client ");
+		 Query q4=session.createQuery("select avg(age) from Client ");
+		 Query q5=session.createQuery("select count(address) from Client ");
+		 Query q6=session.createQuery("select count(distinct address) from Client ");
+
+
+
+
+
+
+			System.out.println("  Max "+q1.list().get(0));
+			System.out.println("  Min "+q2.list().get(0));
+			System.out.println("  Sum "+q3.list().get(0));
+			System.out.println("  avg "+q4.list().get(0));
+			System.out.println("  Sum "+q5.list().get(0));
+			System.out.println("  Sum "+q6.list().get(0));
+
+
+
+
+			  /*List<Client> clients=	q.list();
 					//.list();
 			//System.out.println(clients);
 			for (int i=0;i< clients.size();i++){
 				System.out.println(clients.get(i).getFullName()+"    "+clients.get(i).getAge());
 			}
 			//System.out.println(c.getFullName()+"     "+c.getAddress());
-
+              */
 		}catch (Exception e){
 		  System.out.println(e.toString());
 	  }  finally {
@@ -99,3 +113,15 @@ Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
 			c.setId(3L);
             session.delete(c);
 			session.getTransaction().commit();   */
+
+
+
+
+//List<Client> clients=
+			/* Query q=
+					session
+					.createQuery("from Client c where c.id=: n1 or fullName=: n2");
+			//q.setFirstResult(0);
+			//q.setMaxResults(3);
+			q.setInteger("n1",id);
+			q.setString("n2","karim");  */
