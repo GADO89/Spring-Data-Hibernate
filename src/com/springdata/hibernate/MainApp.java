@@ -16,22 +16,21 @@ public class MainApp {
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
-
-		long id=3;
-
-
+		long id=2;
 		try {
          session.beginTransaction();
-
-
+            /*
 			Client client=session.get(Client.class, id);
-
-
+			client.setFullName("Yasser");
+			client.setAge(33);
+			client.setAddress("Alex");
+                  */
+			Client c=new Client("Karim",33,"cairo");
+			c.setId((long)1);
+			session.update(c);
 			session.getTransaction().commit();
 
-
-			System.out.println(client.getFullName()+"     "+client.getAddress());
-			System.out.println(client.getAge());
+			System.out.println(c.getFullName()+"     "+c.getAddress());
 
 
 		}catch (Exception e){
