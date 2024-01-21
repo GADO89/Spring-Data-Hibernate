@@ -14,6 +14,10 @@ public class Person {
     @Column(name = "full_name")
     private String name;
 
+    @OneToOne
+    @JoinColumn(name = "id_data")
+    private Data data;
+
     public Person() {
     }
 
