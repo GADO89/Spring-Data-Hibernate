@@ -4,6 +4,7 @@ import com.springdata.hibernate.model.Client;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -18,17 +19,23 @@ public class MainApp {
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
-		long id=1;
+		int id=1;
 		try {
          session.beginTransaction();
 			//List<Client> clients=
+			Query q=
 					session
-					.createQuery("delete Client c where c.fullName='sameh'")
-					.executeUpdate();
+					.createQuery("from Client c where c.id=: n1 or fullName=: n2");
+			//q.setFirstResult(0);
+			//q.setMaxResults(3);
+			q.setInteger("n1",id);
+			q.setString("n2","karim");
+			List<Client> clients=	q.list();
+					//.list();
 			//System.out.println(clients);
-			//for (int i=0;i< clients.size();i++){
-			//	System.out.println(clients.get(i).getFullName()+"    "+clients.get(i).getAge());
-			//}
+			for (int i=0;i< clients.size();i++){
+				System.out.println(clients.get(i).getFullName()+"    "+clients.get(i).getAge());
+			}
 			//System.out.println(c.getFullName()+"     "+c.getAddress());
 
 		}catch (Exception e){
