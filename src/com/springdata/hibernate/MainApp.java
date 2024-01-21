@@ -5,6 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 
 public class MainApp {
 
@@ -16,25 +18,18 @@ public class MainApp {
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
-		long id=2;
+		long id=1;
 		try {
          session.beginTransaction();
-            /*
-			Client client=session.get(Client.class, id);
-			client.setFullName("Yasser");
-			client.setAge(33);
-			client.setAddress("Alex");
-			Client c=new Client("Karim",33,"cairo");
-			c.setId((long)1);
-			session.update(c);
-                  */
-            Client c=new Client();
-			c.setId(2L);
-            session.delete(c);
-			session.getTransaction().commit();
-
+			//List<Client> clients=
+					session
+					.createQuery("delete Client c where c.fullName='sameh'")
+					.executeUpdate();
+			//System.out.println(clients);
+			//for (int i=0;i< clients.size();i++){
+			//	System.out.println(clients.get(i).getFullName()+"    "+clients.get(i).getAge());
+			//}
 			//System.out.println(c.getFullName()+"     "+c.getAddress());
-
 
 		}catch (Exception e){
 		  System.out.println(e.toString());
@@ -80,3 +75,20 @@ Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
 		  session.save(client3);
 
 		*/
+
+
+
+
+   /*
+			Client client=session.get(Client.class, id);
+			client.setFullName("Yasser");
+			client.setAge(33);
+			client.setAddress("Alex");
+			Client c=new Client("Karim",33,"cairo");
+			c.setId((long)1);
+			session.update(c);
+
+            Client c=new Client();
+			c.setId(3L);
+            session.delete(c);
+			session.getTransaction().commit();   */
