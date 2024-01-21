@@ -24,13 +24,16 @@ public class MainApp {
 			client.setFullName("Yasser");
 			client.setAge(33);
 			client.setAddress("Alex");
-                  */
 			Client c=new Client("Karim",33,"cairo");
 			c.setId((long)1);
 			session.update(c);
+                  */
+            Client c=new Client();
+			c.setId(2L);
+            session.delete(c);
 			session.getTransaction().commit();
 
-			System.out.println(c.getFullName()+"     "+c.getAddress());
+			//System.out.println(c.getFullName()+"     "+c.getAddress());
 
 
 		}catch (Exception e){
