@@ -27,8 +27,17 @@ public class MainApp {
 
 		try {
          session.beginTransaction();
-		 Criteria c=session.createCriteria(Client.class);
 
+		 Person p=new Person();
+		 p.setName("Eslam Khder");
+
+		 Data data=new Data();
+		 data.setAge("20");
+
+		 p.setData(data);
+		 session.save(p);
+
+		 session.getTransaction().commit();
 		}catch (Exception e){
 		  System.out.println(e.toString());
 	  }  finally {
@@ -146,4 +155,6 @@ Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
 			System.out.println("countDistinct  :"+clients.get(0));
 			//for (int i=0;i< clients.size();i++){
 			//	System.out.println(clients.get(i).getFullName()+"    "+clients.get(i).getAge());}
+
+			 Criteria c=session.createCriteria(Client.class);
            */
