@@ -2,6 +2,7 @@ package com.springdata.hibernate.model;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "student")
@@ -13,6 +14,17 @@ public class Student {
 
     @Column(name = "full_name")
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
+    private Set<Info> infos;
+
+    public Set<Info> getInfos() {
+        return infos;
+    }
+
+    public void setInfos(Set<Info> infos) {
+        this.infos = infos;
+    }
 
     public Student() {
     }
