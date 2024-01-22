@@ -22,22 +22,31 @@ public class MainApp {
 		try {
          session.beginTransaction();
 
-
+		 long id=1;
 		 Student student=new Student();
-		 student.setName("Gado");
+		  student = session.get(Student.class,id);
+
+		System.out.println(student.getName());
+		System.out.println(student.getInfos());
+		Info info=new Info();
+		for (Info i: student.getInfos()){
+			System.out.println(i.getPhone());
+		}
+	/*	 Student student=new Student();
+		 student.setName("Ahmed");
 
 		 Info inf01=new Info();
-		 inf01.setPhone("01125589989");
+		 inf01.setPhone("0111111111111");
 
 		 Info inf02=new Info();
-		 inf02.setPhone("011444444444");
+		 inf02.setPhone("02222222222222");
 
 		 student.getInfos().add(inf01);
 		 student.getInfos().add(inf02);
 		 inf01.setStudent(student);
 		 inf02.setStudent(student);
 
-		 session.save(student);
+		 session.save(student);  */
 
 		 session.getTransaction().commit();
 
