@@ -15,6 +15,19 @@ public class Data {
     private String age;
 
 
+    @OneToOne(mappedBy = "data", cascade = {CascadeType.ALL,CascadeType.MERGE,CascadeType.PERSIST,
+            CascadeType.REFRESH})
+    private Person person;
+
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     public Data() {
     }
 

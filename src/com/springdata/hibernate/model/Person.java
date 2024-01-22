@@ -25,6 +25,7 @@ public class Person {
         return data;
     }
 
+
     public void setData(Data data) {
         this.data = data;
     }
