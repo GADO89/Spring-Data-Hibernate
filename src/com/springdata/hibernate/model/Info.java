@@ -17,6 +17,8 @@ public class Info {
     @JoinColumn(name = "id_student")
     private Student student;
 
+
+
     public Student getStudent() {
         return student;
     }

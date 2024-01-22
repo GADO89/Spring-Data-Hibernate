@@ -26,13 +26,22 @@ public class MainApp {
 		 Student student=new Student();
 		  student = session.get(Student.class,id);
 
-		System.out.println(student.getName());
+
+
+
+			student.setName("Gado");
+			student.getInfos().get(0).setPhone("05555555555555");
+			student.getInfos().get(1).setPhone("06666666666666");
+
+
+
+	/*	System.out.println(student.getName());
 		System.out.println(student.getInfos());
 		Info info=new Info();
 		for (Info i: student.getInfos()){
 			System.out.println(i.getPhone());
 		}
-	/*	 Student student=new Student();
+		 Student student=new Student();
 		 student.setName("Ahmed");
 
 		 Info inf01=new Info();
