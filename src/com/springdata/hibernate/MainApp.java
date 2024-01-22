@@ -22,20 +22,18 @@ public class MainApp {
 		try {
          session.beginTransaction();
 
-		 long id=1;
+		 long id=2;
 		 Student student=new Student();
 		  student = session.get(Student.class,id);
 
 
+		  session.delete(student);
 
+		/*	student.setName("Yasser");
+			student.getInfos().get(0).setPhone("015");
+			student.getInfos().get(1).setPhone("012");
 
-			student.setName("Gado");
-			student.getInfos().get(0).setPhone("05555555555555");
-			student.getInfos().get(1).setPhone("06666666666666");
-
-
-
-	/*	System.out.println(student.getName());
+		System.out.println(student.getName());
 		System.out.println(student.getInfos());
 		Info info=new Info();
 		for (Info i: student.getInfos()){

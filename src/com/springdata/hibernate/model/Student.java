@@ -18,7 +18,7 @@ public class Student {
     @Column(name = "full_name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
+    @OneToMany(cascade = {CascadeType.ALL,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH, CascadeType.DETACH}, mappedBy = "student")
     private List<Info> infos=new ArrayList<>();
 
     public Student() {
