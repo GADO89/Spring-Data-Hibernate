@@ -37,25 +37,7 @@ public class MainApp {
 			System.out.println("Age : "+ res.getPerson().getName());
 
 			session.delete(res);
-		/* Person p=new Person();
-		 p.setName("Eslam Khder");
-		 session.save(p);
 
-
-			Data data=new Data();
-		 data.setAge("20");
-		 session.save(data);
-
-		 Person p=new Person();
-		 p.setId(1L);
-
-		 Person res= session.get(Person.class,p.getId());
-
-			System.out.println("Name : "+ res.getName());
-			System.out.println("Age : "+ res.getData().getAge());
-
-			res.setName("Karim");
-			res.getData().setAge("50"); */
 			session.getTransaction().commit();
 
 		}catch (Exception e){
@@ -178,3 +160,23 @@ Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
 
 			 Criteria c=session.createCriteria(Client.class);
            */
+
+/* Person p=new Person();
+		 p.setName("Eslam Khder");
+		 session.save(p);
+
+
+			Data data=new Data();
+		 data.setAge("20");
+		 session.save(data);
+
+		 Person p=new Person();
+		 p.setId(1L);
+
+		 Person res= session.get(Person.class,p.getId());
+
+			System.out.println("Name : "+ res.getName());
+			System.out.println("Age : "+ res.getData().getAge());
+
+			res.setName("Karim");
+			res.getData().setAge("50"); */
