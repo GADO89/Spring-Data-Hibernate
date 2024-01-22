@@ -4,14 +4,14 @@ package com.springdata.hibernate.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "data")
+@Table(name = "information")
 public class Info {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
      @Column(name = "id")
-    private Long id;
+     private Long id;
 
-    @Column(name = "person_age")
+    @Column(name = "phone")
     private String phone;
 
     public Info() {

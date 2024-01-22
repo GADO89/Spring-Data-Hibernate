@@ -1,16 +1,11 @@
-package com.springdata.hibernate;
+	package com.springdata.hibernate;
 
-import com.springdata.hibernate.model.Client;
-import com.springdata.hibernate.model.Data;
-import com.springdata.hibernate.model.Person;
-import org.hibernate.Criteria;
+import com.springdata.hibernate.model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Projections;
 
 
-import java.util.List;
 
 
 public class MainApp {
@@ -19,8 +14,8 @@ public class MainApp {
 		// TODO Auto-generated method stub
 		SessionFactory factory=new Configuration()
 				.configure("hibernate.cfg.xml")
-				.addAnnotatedClass(Person.class)
-				.addAnnotatedClass(Data.class)
+				.addAnnotatedClass(Student.class)
+				.addAnnotatedClass(Info.class)
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
@@ -28,15 +23,7 @@ public class MainApp {
 		try {
          session.beginTransaction();
 
-		 Data d= new Data();
-		 d.setId(1L);
 
-		Data res= session.get(Data.class,d.getId());
-
-			System.out.println("Name : "+ res.getAge());
-			System.out.println("Age : "+ res.getPerson().getName());
-
-			session.delete(res);
 
 			session.getTransaction().commit();
 
@@ -180,3 +167,13 @@ Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
 
 			res.setName("Karim");
 			res.getData().setAge("50"); */
+
+	 /* Data d= new Data();
+		 d.setId(1L);
+
+		Data res= session.get(Data.class,d.getId());
+
+			System.out.println("Name : "+ res.getAge());
+			System.out.println("Age : "+ res.getPerson().getName());
+
+			session.delete(res);  */
