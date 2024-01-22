@@ -2,6 +2,7 @@ package com.springdata.hibernate.model;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,7 +17,7 @@ public class Student {
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
-    private Set<Info> infos;
+    private Set<Info> infos=new HashSet<>();
 
     public Set<Info> getInfos() {
         return infos;

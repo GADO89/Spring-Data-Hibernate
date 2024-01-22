@@ -16,7 +16,7 @@ public class Person {
 
     @OneToOne(cascade =CascadeType.MERGE)
     @JoinColumn(name = "id_data")
-    private Data data;
+    private Data data=new Data();
 
     public Person() {
     }

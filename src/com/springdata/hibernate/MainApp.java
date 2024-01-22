@@ -19,13 +19,27 @@ public class MainApp {
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
-
 		try {
          session.beginTransaction();
 
 
+		 Student student=new Student();
+		 student.setName("Gado");
 
-			session.getTransaction().commit();
+		 Info inf01=new Info();
+		 inf01.setPhone("01125589989");
+
+		 Info inf02=new Info();
+		 inf02.setPhone("011444444444");
+
+		 student.getInfos().add(inf01);
+		 student.getInfos().add(inf02);
+		 inf01.setStudent(student);
+		 inf02.setStudent(student);
+
+		 session.save(student);
+
+		 session.getTransaction().commit();
 
 		}catch (Exception e){
 		  System.out.println(e.toString());
