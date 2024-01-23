@@ -20,34 +20,18 @@ public class MainApp {
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
+		long id= 2L;
 		try {
          session.beginTransaction();
+		 Color c= session.get(Color.class, id);
 
-			Car c1=new Car("Car1");
-			Car c2=new Car("Car2");
-			Car c3=new Car("Car3");
-          //////////////////////////////////////////////
-			Color co1=new Color("red");
-			Color co2=new Color("blue");
-			Color co3=new Color("yellow");
-			//////////////////////////////////////////////
-			co1.getCars().add(c1);
-			co1.getCars().add(c2);
-			co1.getCars().add(c3);
-			//////////////////////////////////////////////
-			co2.getCars().add(c1);
-			co2.getCars().add(c2);
-			co2.getCars().add(c3);
-			//////////////////////////////////////////////
-			co3.getCars().add(c1);
-			co3.getCars().add(c2);
-			co3.getCars().add(c3);
 
-			session.save(co1);
-			session.save(co2);
-			session.save(co3);
-			session.getTransaction().commit();
-
+		 session.close();
+		 System.out.println(c.getName());
+		 for (Car cl: c.getCars()){
+			 System.out.println(cl.getName());
+		 }
+		 session.getTransaction().commit();
 		}catch (Exception e){
 		  System.out.println(e.toString());
 	  }  finally {
@@ -238,3 +222,27 @@ Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
 		 inf02.setStudent(student);
 
 		 session.save(student);  */
+
+	 /*   Car c1=new Car("Car1");
+			Car c2=new Car("Car2");
+			Car c3=new Car("Car3");
+          //////////////////////////////////////////////
+			Color co1=new Color("red");
+			Color co2=new Color("blue");
+			Color co3=new Color("yellow");
+			//////////////////////////////////////////////
+			co1.getCars().add(c1);
+			co1.getCars().add(c2);
+			co1.getCars().add(c3);
+			//////////////////////////////////////////////
+			co2.getCars().add(c1);
+			co2.getCars().add(c2);
+			co2.getCars().add(c3);
+			//////////////////////////////////////////////
+			co3.getCars().add(c1);
+			co3.getCars().add(c2);
+			co3.getCars().add(c3);
+
+			session.save(co1);
+			session.save(co2);
+			session.save(co3);  */
