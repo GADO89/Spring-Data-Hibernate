@@ -20,12 +20,12 @@ public class MainApp {
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
-		long id= 1L;
+		long id= 4L;
 		try {
          session.beginTransaction();
 		 Car c= session.get(Car.class, id);
-		 c.setName("Car new");
-		 c.getColors().get(0).setName("Black");
+
+		 session.delete(c);
 
 
 
@@ -221,7 +221,7 @@ Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
 
 		 session.save(student);  */
 
-	 /*   Car c1=new Car("Car1");
+	 /*     Car c1=new Car("Car1");
 			Car c2=new Car("Car2");
 			Car c3=new Car("Car3");
           //////////////////////////////////////////////
