@@ -2,6 +2,8 @@ package com.springdata.hibernate.model;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "color")
@@ -14,7 +16,23 @@ public class Color {
     @Column(name = "name")
     private String name;
 
+     @ManyToMany(cascade = CascadeType.ALL)
+     @JoinTable(
+             name = "car_color",
+             joinColumns = @JoinColumn(name = "color_id"),
+             inverseJoinColumns = @JoinColumn(name = "car_id")
+     )
+    private List<Car> cars=new ArrayList<Car>();
+
     public Color() {
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 
     public Long getId() {
