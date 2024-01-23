@@ -11,7 +11,7 @@ public class Color {
      @Column(name = "id")
     private Long id;
 
-    @Column(name = "person_age")
+    @Column(name = "name")
     private String name;
 
     public Color() {

@@ -8,10 +8,10 @@ import javax.persistence.*;
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     @Column(name = "id")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "person_age")
+    @Column(name = "name")
     private String name;
 
     public Car() {

@@ -1,6 +1,7 @@
 	package com.springdata.hibernate;
 
-import com.springdata.hibernate.model.*;
+import com.springdata.hibernate.model.Car;
+import com.springdata.hibernate.model.Color;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -14,57 +15,21 @@ public class MainApp {
 		// TODO Auto-generated method stub
 		SessionFactory factory=new Configuration()
 				.configure("hibernate.cfg.xml")
-				.addAnnotatedClass(Student.class)
-				.addAnnotatedClass(Info.class)
+				.addAnnotatedClass(Car.class)
+				.addAnnotatedClass(Color.class)
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
 		try {
          session.beginTransaction();
 
-		 long id=10;
-		 Student student=new Student();
-		  student = session.get(Student.class,id);
-
-		    session.close();
-			System.out.println(student.getName());
-			System.out.println(student.getInfos().get(0).getPhone());
-
-
-			// session.delete(student);
-
-		/*	student.setName("Yasser");
-			student.getInfos().get(0).setPhone("015");
-			student.getInfos().get(1).setPhone("012");
-
-		System.out.println(student.getName());
-		System.out.println(student.getInfos());
-		Info info=new Info();
-		for (Info i: student.getInfos()){
-			System.out.println(i.getPhone());
-		}
-		 Student student=new Student();
-		 student.setName("Ahmed");
-
-		 Info inf01=new Info();
-		 inf01.setPhone("0111111111111");
-
-		 Info inf02=new Info();
-		 inf02.setPhone("02222222222222");
-
-		 student.getInfos().add(inf01);
-		 student.getInfos().add(inf02);
-		 inf01.setStudent(student);
-		 inf02.setStudent(student);
-
-		 session.save(student);  */
 
 		 session.getTransaction().commit();
 
 		}catch (Exception e){
 		  System.out.println(e.toString());
 	  }  finally {
-     // session.close();
+     session.close();
 	  }
 
 	}
@@ -211,3 +176,43 @@ Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
 			System.out.println("Age : "+ res.getPerson().getName());
 
 			session.delete(res);  */
+
+
+
+
+	/* long id=10;
+		 Student student=new Student();
+		  student = session.get(Student.class,id);
+
+		  session.close();
+		  System.out.println(student.getName());
+		   System.out.println(student.getInfos().get(0).getPhone());
+
+
+			 session.delete(student);
+
+			student.setName("Yasser");
+			student.getInfos().get(0).setPhone("015");
+			student.getInfos().get(1).setPhone("012");
+
+		System.out.println(student.getName());
+		System.out.println(student.getInfos());
+		Info info=new Info();
+		for (Info i: student.getInfos()){
+			System.out.println(i.getPhone());
+		}
+		 Student student=new Student();
+		 student.setName("Ahmed");
+
+		 Info inf01=new Info();
+		 inf01.setPhone("0111111111111");
+
+		 Info inf02=new Info();
+		 inf02.setPhone("02222222222222");
+
+		 student.getInfos().add(inf01);
+		 student.getInfos().add(inf02);
+		 inf01.setStudent(student);
+		 inf02.setStudent(student);
+
+		 session.save(student);  */
