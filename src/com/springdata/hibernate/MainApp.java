@@ -20,17 +20,15 @@ public class MainApp {
 				.buildSessionFactory();
 		Session session= (Session) factory.getCurrentSession();
 
-		long id= 2L;
+		long id= 1L;
 		try {
          session.beginTransaction();
-		 Color c= session.get(Color.class, id);
+		 Car c= session.get(Car.class, id);
+		 c.setName("Car new");
+		 c.getColors().get(0).setName("Black");
 
 
-		 session.close();
-		 System.out.println(c.getName());
-		 for (Car cl: c.getCars()){
-			 System.out.println(cl.getName());
-		 }
+
 		 session.getTransaction().commit();
 		}catch (Exception e){
 		  System.out.println(e.toString());
@@ -245,4 +243,12 @@ Client client=new Client("Mahmoud Gado",34,"gaomahmoud377@gmail.com");
 
 			session.save(co1);
 			session.save(co2);
-			session.save(co3);  */
+			session.save(co3);
+
+
+
+			 session.close();
+		 System.out.println(c.getName());
+		 for (Car cl: c.getCars()){
+			 System.out.println(cl.getName());
+		 }*/
