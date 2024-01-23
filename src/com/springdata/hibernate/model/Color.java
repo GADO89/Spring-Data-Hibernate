@@ -27,6 +27,10 @@ public class Color {
     public Color() {
     }
 
+    public Color(String name) {
+        this.name = name;
+    }
+
     public List<Car> getCars() {
         return cars;
     }

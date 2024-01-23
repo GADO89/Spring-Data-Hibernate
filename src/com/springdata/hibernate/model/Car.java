@@ -26,6 +26,10 @@ public class Car {
     public Car() {
     }
 
+    public Car(String name) {
+        this.name = name;
+    }
+
     public List<Color> getColors() {
         return colors;
     }
