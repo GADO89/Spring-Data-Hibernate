@@ -15,7 +15,7 @@ public class Info {
     private String phone;
     @ManyToOne
     @JoinColumn(name = "id_student")
-    private Student student;
+    private Student student=new Student();
 
 
 

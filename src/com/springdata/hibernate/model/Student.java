@@ -3,9 +3,7 @@ package com.springdata.hibernate.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "student")
@@ -18,7 +16,7 @@ public class Student {
     @Column(name = "full_name")
     private String name;
 
-    @OneToMany(cascade = {CascadeType.ALL,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH, CascadeType.DETACH}, mappedBy = "student")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student", fetch = FetchType.LAZY)
     private List<Info> infos=new ArrayList<>();
 
     public Student() {

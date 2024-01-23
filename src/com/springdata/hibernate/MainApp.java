@@ -22,12 +22,16 @@ public class MainApp {
 		try {
          session.beginTransaction();
 
-		 long id=2;
+		 long id=10;
 		 Student student=new Student();
 		  student = session.get(Student.class,id);
 
+		    session.close();
+			System.out.println(student.getName());
+			System.out.println(student.getInfos().get(0).getPhone());
 
-		  session.delete(student);
+
+			// session.delete(student);
 
 		/*	student.setName("Yasser");
 			student.getInfos().get(0).setPhone("015");
@@ -60,7 +64,7 @@ public class MainApp {
 		}catch (Exception e){
 		  System.out.println(e.toString());
 	  }  finally {
-      session.close();
+     // session.close();
 	  }
 
 	}
